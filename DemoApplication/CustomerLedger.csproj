@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7CE3C3E1-3BE7-4C47-BCF4-1959C7F86BE4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoApplication</RootNamespace>
+    <AssemblyName>DemoApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Data\CustomerDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBL_City.cs">
+      <DependentUpon>CustomerDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TBL_Customer.cs">
+      <DependentUpon>CustomerDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker3.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\js\bootstrap-datepicker.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\js\bootstrap-datepicker.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.bm.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.tk.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Content\plugins\datatables.net-bs4\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\plugins\datatables.net-bs4\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\plugins\datatables.net-bs4\js\dataTables.bootstrap4.js" />
+    <Content Include="Content\plugins\datatables.net-bs4\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\plugins\datatables.net-responsive-bs4\css\responsive.bootstrap4.css" />
+    <Content Include="Content\plugins\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\plugins\datatables.net-responsive-bs4\js\responsive.bootstrap4.js" />
+    <Content Include="Content\plugins\datatables.net-responsive-bs4\js\responsive.bootstrap4.min.js" />
+    <Content Include="Content\plugins\datatables.net-responsive\js\dataTables.responsive.js" />
+    <Content Include="Content\plugins\datatables.net-responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Content\plugins\datatables.net\js\jquery.dataTables.js" />
+    <Content Include="Content\plugins\datatables.net\js\jquery.dataTables.min.js" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\plugins\moment\ender.js" />
+    <Content Include="Content\plugins\moment\locale\af.js" />
+    <Content Include="Content\plugins\moment\locale\ar-dz.js" />
+    <Content Include="Content\plugins\moment\locale\ar-kw.js" />
+    <Content Include="Content\plugins\moment\locale\ar-ly.js" />
+    <Content Include="Content\plugins\moment\locale\ar-ma.js" />
+    <Content Include="Content\plugins\moment\locale\ar-sa.js" />
+    <Content Include="Content\plugins\moment\locale\ar-tn.js" />
+    <Content Include="Content\plugins\moment\locale\ar.js" />
+    <Content Include="Content\plugins\moment\locale\az.js" />
+    <Content Include="Content\plugins\moment\locale\be.js" />
+    <Content Include="Content\plugins\moment\locale\bg.js" />
+    <Content Include="Content\plugins\moment\locale\bm.js" />
+    <Content Include="Content\plugins\moment\locale\bn.js" />
+    <Content Include="Content\plugins\moment\locale\bo.js" />
+    <Content Include="Content\plugins\moment\locale\br.js" />
+    <Content Include="Content\plugins\moment\locale\bs.js" />
+    <Content Include="Content\plugins\moment\locale\ca.js" />
+    <Content Include="Content\plugins\moment\locale\cs.js" />
+    <Content Include="Content\plugins\moment\locale\cv.js" />
+    <Content Include="Content\plugins\moment\locale\cy.js" />
+    <Content Include="Content\plugins\moment\locale\da.js" />
+    <Content Include="Content\plugins\moment\locale\de-at.js" />
+    <Content Include="Content\plugins\moment\locale\de-ch.js" />
+    <Content Include="Content\plugins\moment\locale\de.js" />
+    <Content Include="Content\plugins\moment\locale\dv.js" />
+    <Content Include="Content\plugins\moment\locale\el.js" />
+    <Content Include="Content\plugins\moment\locale\en-au.js" />
+    <Content Include="Content\plugins\moment\locale\en-ca.js" />
+    <Content Include="Content\plugins\moment\locale\en-gb.js" />
+    <Content Include="Content\plugins\moment\locale\en-ie.js" />
+    <Content Include="Content\plugins\moment\locale\en-il.js" />
+    <Content Include="Content\plugins\moment\locale\en-nz.js" />
+    <Content Include="Content\plugins\moment\locale\en-SG.js" />
+    <Content Include="Content\plugins\moment\locale\eo.js" />
+    <Content Include="Content\plugins\moment\locale\es-do.js" />
+    <Content Include="Content\plugins\moment\locale\es-us.js" />
+    <Content Include="Content\plugins\moment\locale\es.js" />
+    <Content Include="Content\plugins\moment\locale\et.js" />
+    <Content Include="Content\plugins\moment\locale\eu.js" />
+    <Content Include="Content\plugins\moment\locale\fa.js" />
+    <Content Include="Content\plugins\moment\locale\fi.js" />
+    <Content Include="Content\plugins\moment\locale\fo.js" />
+    <Content Include="Content\plugins\moment\locale\fr-ca.js" />
+    <Content Include="Content\plugins\moment\locale\fr-ch.js" />
+    <Content Include="Content\plugins\moment\locale\fr.js" />
+    <Content Include="Content\plugins\moment\locale\fy.js" />
+    <Content Include="Content\plugins\moment\locale\ga.js" />
+    <Content Include="Content\plugins\moment\locale\gd.js" />
+    <Content Include="Content\plugins\moment\locale\gl.js" />
+    <Content Include="Content\plugins\moment\locale\gom-latn.js" />
+    <Content Include="Content\plugins\moment\locale\gu.js" />
+    <Content Include="Content\plugins\moment\locale\he.js" />
+    <Content Include="Content\plugins\moment\locale\hi.js" />
+    <Content Include="Content\plugins\moment\locale\hr.js" />
+    <Content Include="Content\plugins\moment\locale\hu.js" />
+    <Content Include="Content\plugins\moment\locale\hy-am.js" />
+    <Content Include="Content\plugins\moment\locale\id.js" />
+    <Content Include="Content\plugins\moment\locale\is.js" />
+    <Content Include="Content\plugins\moment\locale\it-ch.js" />
+    <Content Include="Content\plugins\moment\locale\it.js" />
+    <Content Include="Content\plugins\moment\locale\ja.js" />
+    <Content Include="Content\plugins\moment\locale\jv.js" />
+    <Content Include="Content\plugins\moment\locale\ka.js" />
+    <Content Include="Content\plugins\moment\locale\kk.js" />
+    <Content Include="Content\plugins\moment\locale\km.js" />
+    <Content Include="Content\plugins\moment\locale\kn.js" />
+    <Content Include="Content\plugins\moment\locale\ko.js" />
+    <Content Include="Content\plugins\moment\locale\ku.js" />
+    <Content Include="Content\plugins\moment\locale\ky.js" />
+    <Content Include="Content\plugins\moment\locale\lb.js" />
+    <Content Include="Content\plugins\moment\locale\lo.js" />
+    <Content Include="Content\plugins\moment\locale\lt.js" />
+    <Content Include="Content\plugins\moment\locale\lv.js" />
+    <Content Include="Content\plugins\moment\locale\me.js" />
+    <Content Include="Content\plugins\moment\locale\mi.js" />
+    <Content Include="Content\plugins\moment\locale\mk.js" />
+    <Content Include="Content\plugins\moment\locale\ml.js" />
+    <Content Include="Content\plugins\moment\locale\mn.js" />
+    <Content Include="Content\plugins\moment\locale\mr.js" />
+    <Content Include="Content\plugins\moment\locale\ms-my.js" />
+    <Content Include="Content\plugins\moment\locale\ms.js" />
+    <Content Include="Content\plugins\moment\locale\mt.js" />
+    <Content Include="Content\plugins\moment\locale\my.js" />
+    <Content Include="Content\plugins\moment\locale\nb.js" />
+    <Content Include="Content\plugins\moment\locale\ne.js" />
+    <Content Include="Content\plugins\moment\locale\nl-be.js" />
+    <Content Include="Content\plugins\moment\locale\nl.js" />
+    <Content Include="Content\plugins\moment\locale\nn.js" />
+    <Content Include="Content\plugins\moment\locale\pa-in.js" />
+    <Content Include="Content\plugins\moment\locale\pl.js" />
+    <Content Include="Content\plugins\moment\locale\pt-br.js" />
+    <Content Include="Content\plugins\moment\locale\pt.js" />
+    <Content Include="Content\plugins\moment\locale\ro.js" />
+    <Content Include="Content\plugins\moment\locale\ru.js" />
+    <Content Include="Content\plugins\moment\locale\sd.js" />
+    <Content Include="Content\plugins\moment\locale\se.js" />
+    <Content Include="Content\plugins\moment\locale\si.js" />
+    <Content Include="Content\plugins\moment\locale\sk.js" />
+    <Content Include="Content\plugins\moment\locale\sl.js" />
+    <Content Include="Content\plugins\moment\locale\sq.js" />
+    <Content Include="Content\plugins\moment\locale\sr-cyrl.js" />
+    <Content Include="Content\plugins\moment\locale\sr.js" />
+    <Content Include="Content\plugins\moment\locale\ss.js" />
+    <Content Include="Content\plugins\moment\locale\sv.js" />
+    <Content Include="Content\plugins\moment\locale\sw.js" />
+    <Content Include="Content\plugins\moment\locale\ta.js" />
+    <Content Include="Content\plugins\moment\locale\te.js" />
+    <Content Include="Content\plugins\moment\locale\tet.js" />
+    <Content Include="Content\plugins\moment\locale\tg.js" />
+    <Content Include="Content\plugins\moment\locale\th.js" />
+    <Content Include="Content\plugins\moment\locale\tl-ph.js" />
+    <Content Include="Content\plugins\moment\locale\tlh.js" />
+    <Content Include="Content\plugins\moment\locale\tr.js" />
+    <Content Include="Content\plugins\moment\locale\tzl.js" />
+    <Content Include="Content\plugins\moment\locale\tzm-latn.js" />
+    <Content Include="Content\plugins\moment\locale\tzm.js" />
+    <Content Include="Content\plugins\moment\locale\ug-cn.js" />
+    <Content Include="Content\plugins\moment\locale\uk.js" />
+    <Content Include="Content\plugins\moment\locale\ur.js" />
+    <Content Include="Content\plugins\moment\locale\uz-latn.js" />
+    <Content Include="Content\plugins\moment\locale\uz.js" />
+    <Content Include="Content\plugins\moment\locale\vi.js" />
+    <Content Include="Content\plugins\moment\locale\x-pseudo.js" />
+    <Content Include="Content\plugins\moment\locale\yo.js" />
+    <Content Include="Content\plugins\moment\locale\zh-cn.js" />
+    <Content Include="Content\plugins\moment\locale\zh-hk.js" />
+    <Content Include="Content\plugins\moment\locale\zh-tw.js" />
+    <Content Include="Content\plugins\moment\min\locales.js" />
+    <Content Include="Content\plugins\moment\min\locales.min.js" />
+    <Content Include="Content\plugins\moment\min\moment-with-locales.js" />
+    <Content Include="Content\plugins\moment\min\moment-with-locales.min.js" />
+    <Content Include="Content\plugins\moment\min\moment.min.js" />
+    <Content Include="Content\plugins\moment\moment.js" />
+    <Content Include="Content\plugins\moment\package.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\check-overflow.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\date-from-array.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\from-anything.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\from-array.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\from-object.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\from-string-and-array.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\from-string-and-format.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\from-string.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\local.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\parsing-flags.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\utc.js" />
+    <Content Include="Content\plugins\moment\src\lib\create\valid.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\abs.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\add-subtract.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\as.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\bubble.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\clone.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\constructor.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\create.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\duration.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\get.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\humanize.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\iso-string.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\prototype.js" />
+    <Content Include="Content\plugins\moment\src\lib\duration\valid.js" />
+    <Content Include="Content\plugins\moment\src\lib\format\format.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\base-config.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\calendar.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\constructor.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\en.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\formats.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\invalid.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\lists.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\locale.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\locales.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\ordinal.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\pre-post-format.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\prototype.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\relative.js" />
+    <Content Include="Content\plugins\moment\src\lib\locale\set.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\add-subtract.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\calendar.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\clone.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\compare.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\constructor.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\creation-data.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\diff.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\format.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\from.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\get-set.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\locale.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\min-max.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\moment.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\now.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\prototype.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\start-end-of.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\to-type.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\to.js" />
+    <Content Include="Content\plugins\moment\src\lib\moment\valid.js" />
+    <Content Include="Content\plugins\moment\src\lib\parse\regex.js" />
+    <Content Include="Content\plugins\moment\src\lib\parse\token.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\aliases.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\constants.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\day-of-month.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\day-of-week.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\day-of-year.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\hour.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\millisecond.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\minute.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\month.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\offset.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\priorities.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\quarter.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\second.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\timestamp.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\timezone.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\units.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\week-calendar-utils.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\week-year.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\week.js" />
+    <Content Include="Content\plugins\moment\src\lib\units\year.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\abs-ceil.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\abs-floor.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\abs-round.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\compare-arrays.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\defaults.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\deprecate.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\extend.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\has-own-prop.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\hooks.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\index-of.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\is-array.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\is-date.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\is-function.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\is-number.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\is-object-empty.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\is-object.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\is-undefined.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\keys.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\map.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\mod.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\some.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\to-int.js" />
+    <Content Include="Content\plugins\moment\src\lib\utils\zero-fill.js" />
+    <Content Include="Content\plugins\moment\src\locale\af.js" />
+    <Content Include="Content\plugins\moment\src\locale\ar-dz.js" />
+    <Content Include="Content\plugins\moment\src\locale\ar-kw.js" />
+    <Content Include="Content\plugins\moment\src\locale\ar-ly.js" />
+    <Content Include="Content\plugins\moment\src\locale\ar-ma.js" />
+    <Content Include="Content\plugins\moment\src\locale\ar-sa.js" />
+    <Content Include="Content\plugins\moment\src\locale\ar-tn.js" />
+    <Content Include="Content\plugins\moment\src\locale\ar.js" />
+    <Content Include="Content\plugins\moment\src\locale\az.js" />
+    <Content Include="Content\plugins\moment\src\locale\be.js" />
+    <Content Include="Content\plugins\moment\src\locale\bg.js" />
+    <Content Include="Content\plugins\moment\src\locale\bm.js" />
+    <Content Include="Content\plugins\moment\src\locale\bn.js" />
+    <Content Include="Content\plugins\moment\src\locale\bo.js" />
+    <Content Include="Content\plugins\moment\src\locale\br.js" />
+    <Content Include="Content\plugins\moment\src\locale\bs.js" />
+    <Content Include="Content\plugins\moment\src\locale\ca.js" />
+    <Content Include="Content\plugins\moment\src\locale\cs.js" />
+    <Content Include="Content\plugins\moment\src\locale\cv.js" />
+    <Content Include="Content\plugins\moment\src\locale\cy.js" />
+    <Content Include="Content\plugins\moment\src\locale\da.js" />
+    <Content Include="Content\plugins\moment\src\locale\de-at.js" />
+    <Content Include="Content\plugins\moment\src\locale\de-ch.js" />
+    <Content Include="Content\plugins\moment\src\locale\de.js" />
+    <Content Include="Content\plugins\moment\src\locale\dv.js" />
+    <Content Include="Content\plugins\moment\src\locale\el.js" />
+    <Content Include="Content\plugins\moment\src\locale\en-au.js" />
+    <Content Include="Content\plugins\moment\src\locale\en-ca.js" />
+    <Content Include="Content\plugins\moment\src\locale\en-gb.js" />
+    <Content Include="Content\plugins\moment\src\locale\en-ie.js" />
+    <Content Include="Content\plugins\moment\src\locale\en-il.js" />
+    <Content Include="Content\plugins\moment\src\locale\en-nz.js" />
+    <Content Include="Content\plugins\moment\src\locale\en-SG.js" />
+    <Content Include="Content\plugins\moment\src\locale\eo.js" />
+    <Content Include="Content\plugins\moment\src\locale\es-do.js" />
+    <Content Include="Content\plugins\moment\src\locale\es-us.js" />
+    <Content Include="Content\plugins\moment\src\locale\es.js" />
+    <Content Include="Content\plugins\moment\src\locale\et.js" />
+    <Content Include="Content\plugins\moment\src\locale\eu.js" />
+    <Content Include="Content\plugins\moment\src\locale\fa.js" />
+    <Content Include="Content\plugins\moment\src\locale\fi.js" />
+    <Content Include="Content\plugins\moment\src\locale\fo.js" />
+    <Content Include="Content\plugins\moment\src\locale\fr-ca.js" />
+    <Content Include="Content\plugins\moment\src\locale\fr-ch.js" />
+    <Content Include="Content\plugins\moment\src\locale\fr.js" />
+    <Content Include="Content\plugins\moment\src\locale\fy.js" />
+    <Content Include="Content\plugins\moment\src\locale\ga.js" />
+    <Content Include="Content\plugins\moment\src\locale\gd.js" />
+    <Content Include="Content\plugins\moment\src\locale\gl.js" />
+    <Content Include="Content\plugins\moment\src\locale\gom-latn.js" />
+    <Content Include="Content\plugins\moment\src\locale\gu.js" />
+    <Content Include="Content\plugins\moment\src\locale\he.js" />
+    <Content Include="Content\plugins\moment\src\locale\hi.js" />
+    <Content Include="Content\plugins\moment\src\locale\hr.js" />
+    <Content Include="Content\plugins\moment\src\locale\hu.js" />
+    <Content Include="Content\plugins\moment\src\locale\hy-am.js" />
+    <Content Include="Content\plugins\moment\src\locale\id.js" />
+    <Content Include="Content\plugins\moment\src\locale\is.js" />
+    <Content Include="Content\plugins\moment\src\locale\it-ch.js" />
+    <Content Include="Content\plugins\moment\src\locale\it.js" />
+    <Content Include="Content\plugins\moment\src\locale\ja.js" />
+    <Content Include="Content\plugins\moment\src\locale\jv.js" />
+    <Content Include="Content\plugins\moment\src\locale\ka.js" />
+    <Content Include="Content\plugins\moment\src\locale\kk.js" />
+    <Content Include="Content\plugins\moment\src\locale\km.js" />
+    <Content Include="Content\plugins\moment\src\locale\kn.js" />
+    <Content Include="Content\plugins\moment\src\locale\ko.js" />
+    <Content Include="Content\plugins\moment\src\locale\ku.js" />
+    <Content Include="Content\plugins\moment\src\locale\ky.js" />
+    <Content Include="Content\plugins\moment\src\locale\lb.js" />
+    <Content Include="Content\plugins\moment\src\locale\lo.js" />
+    <Content Include="Content\plugins\moment\src\locale\lt.js" />
+    <Content Include="Content\plugins\moment\src\locale\lv.js" />
+    <Content Include="Content\plugins\moment\src\locale\me.js" />
+    <Content Include="Content\plugins\moment\src\locale\mi.js" />
+    <Content Include="Content\plugins\moment\src\locale\mk.js" />
+    <Content Include="Content\plugins\moment\src\locale\ml.js" />
+    <Content Include="Content\plugins\moment\src\locale\mn.js" />
+    <Content Include="Content\plugins\moment\src\locale\mr.js" />
+    <Content Include="Content\plugins\moment\src\locale\ms-my.js" />
+    <Content Include="Content\plugins\moment\src\locale\ms.js" />
+    <Content Include="Content\plugins\moment\src\locale\mt.js" />
+    <Content Include="Content\plugins\moment\src\locale\my.js" />
+    <Content Include="Content\plugins\moment\src\locale\nb.js" />
+    <Content Include="Content\plugins\moment\src\locale\ne.js" />
+    <Content Include="Content\plugins\moment\src\locale\nl-be.js" />
+    <Content Include="Content\plugins\moment\src\locale\nl.js" />
+    <Content Include="Content\plugins\moment\src\locale\nn.js" />
+    <Content Include="Content\plugins\moment\src\locale\pa-in.js" />
+    <Content Include="Content\plugins\moment\src\locale\pl.js" />
+    <Content Include="Content\plugins\moment\src\locale\pt-br.js" />
+    <Content Include="Content\plugins\moment\src\locale\pt.js" />
+    <Content Include="Content\plugins\moment\src\locale\ro.js" />
+    <Content Include="Content\plugins\moment\src\locale\ru.js" />
+    <Content Include="Content\plugins\moment\src\locale\sd.js" />
+    <Content Include="Content\plugins\moment\src\locale\se.js" />
+    <Content Include="Content\plugins\moment\src\locale\si.js" />
+    <Content Include="Content\plugins\moment\src\locale\sk.js" />
+    <Content Include="Content\plugins\moment\src\locale\sl.js" />
+    <Content Include="Content\plugins\moment\src\locale\sq.js" />
+    <Content Include="Content\plugins\moment\src\locale\sr-cyrl.js" />
+    <Content Include="Content\plugins\moment\src\locale\sr.js" />
+    <Content Include="Content\plugins\moment\src\locale\ss.js" />
+    <Content Include="Content\plugins\moment\src\locale\sv.js" />
+    <Content Include="Content\plugins\moment\src\locale\sw.js" />
+    <Content Include="Content\plugins\moment\src\locale\ta.js" />
+    <Content Include="Content\plugins\moment\src\locale\te.js" />
+    <Content Include="Content\plugins\moment\src\locale\tet.js" />
+    <Content Include="Content\plugins\moment\src\locale\tg.js" />
+    <Content Include="Content\plugins\moment\src\locale\th.js" />
+    <Content Include="Content\plugins\moment\src\locale\tl-ph.js" />
+    <Content Include="Content\plugins\moment\src\locale\tlh.js" />
+    <Content Include="Content\plugins\moment\src\locale\tr.js" />
+    <Content Include="Content\plugins\moment\src\locale\tzl.js" />
+    <Content Include="Content\plugins\moment\src\locale\tzm-latn.js" />
+    <Content Include="Content\plugins\moment\src\locale\tzm.js" />
+    <Content Include="Content\plugins\moment\src\locale\ug-cn.js" />
+    <Content Include="Content\plugins\moment\src\locale\uk.js" />
+    <Content Include="Content\plugins\moment\src\locale\ur.js" />
+    <Content Include="Content\plugins\moment\src\locale\uz-latn.js" />
+    <Content Include="Content\plugins\moment\src\locale\uz.js" />
+    <Content Include="Content\plugins\moment\src\locale\vi.js" />
+    <Content Include="Content\plugins\moment\src\locale\x-pseudo.js" />
+    <Content Include="Content\plugins\moment\src\locale\yo.js" />
+    <Content Include="Content\plugins\moment\src\locale\zh-cn.js" />
+    <Content Include="Content\plugins\moment\src\locale\zh-hk.js" />
+    <Content Include="Content\plugins\moment\src\locale\zh-tw.js" />
+    <Content Include="Content\plugins\moment\src\moment.js" />
+    <Content Include="Content\plugins\Toastr\toastr.min.css" />
+    <Content Include="Content\plugins\Toastr\toastr.min.js" />
+    <Content Include="Data\CustomerDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CustomerDataModel.edmx</DependentUpon>
+      <LastGenOutput>CustomerDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\CustomerDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CustomerDataModel.edmx</DependentUpon>
+      <LastGenOutput>CustomerDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\plugins\moment\CHANGELOG.md" />
+    <Content Include="Content\plugins\moment\LICENSE" />
+    <Content Include="Content\plugins\moment\package.json" />
+    <Content Include="Content\plugins\moment\README.md" />
+    <EntityDeploy Include="Data\CustomerDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CustomerDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\CustomerDataModel.edmx.diagram">
+      <DependentUpon>CustomerDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker.css.map" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\plugins\bootstrap-datepicker-1.9.0\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\plugins\font-awesome-4.7.0\scss\_variables.scss" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\plugins\moment\moment.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50096</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50096/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

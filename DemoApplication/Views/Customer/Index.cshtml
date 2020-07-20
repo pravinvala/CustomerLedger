@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Customer List";
+}
+
+<div class="container">
+    <br />
+
+    <div class="col col-lg-12 form-group text-center">
+        <label class="h3 "><b>Customers</b></label>
+        <br />
+        <a href="javascript:editCustomer();" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Customer</a>
+        <hr />
+    </div>
+    <hr />
+    <div style="width:90%; margin:0 auto;">
+        <table id="demoGrid" class="table table-striped table-bordered nowrap" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Contact Number</th>
+                    <th>Date</th>
+                    <th>Turnover</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+@section scripts {
+    <script>
+        var oTable;
+        function fnDrawDatatable() {
+            oTable = $("#demoGrid").DataTable({
+                searching: true,
+                ordering: true,
+                lengthChange: true,
+                serverSide: false,
+                responsive: true,
+                processing: true,
+                ajax: {
+                    type: "GET",
+                    url: '/Customer/GetAllCustomer',
+                    dataSrc: function (result) {
+                        return result.data;
+                    }
+                },
+                columns: [
+                    {
+                        "data": "Name", "autoWidth": true,
+                        "render": function (data, type, full, meta) {
+                            return full.FirstName + " " + full.LastName;
+                        }
+                    },
+                    { "data": "ContactNumber", "autoWidth": true },
+                    { "data": "DOBString", "autoWidth": true },
+                    { "data": "TurnOver", "autoWidth": true },
+                    { "data": "Address", "autoWidth": true },
+                    { "data": "City", "autoWidth": true },
+                    {
+                        "data": "ID", "autoWidth": true,
+                        "render": function (data, type, full, meta) {
+                            return '<a href="javascript:editCustomer(' + data + ');" class="btn btn-xs btn-danger edit-customer"><i class="fa fa-pencil"></i> Edit</a>'
+
+                        }
+                    },
+                    {
+                        "data": "ID", "autoWidth": true,
+                        "render": function (data, type, full, meta) {
+                            return '<a href="javascript:deleteCustomer(' + data + ');" class="btn btn-xs btn-danger delete-customer"><i class="fa fa-trash-o"></i> Delete</a>'
+
+                        }
+                    },
+                ]
+            });
+        }
+        $(document).ready(function () {
+            fnDrawDatatable();
+            if ('@TempData["ResultMessage"]' != '') {
+                toastr["success"]("@TempData["ResultMessage"]");
+            }
+        });
+        function deleteCustomer(id) {
+            var conf = confirm("Are you sure want to delete?")
+            if (conf) {
+                $.ajax({
+                    url: '/Customer/DeleteCustomer/?id=' + id, method: 'POST',
+                    success: function (result) {
+                        if (result.isSuccess) {
+                            toastr["success"]("Customer deleted successfully.");
+                            oTable.destroy();
+                            fnDrawDatatable();
+                        }
+                        else {
+                            toastr["error"]("Something went wrong.");
+                        }
+                    }
+                });
+                
+            }
+        }
+
+        function editCustomer(id) {
+            if (id != null) {
+                window.location.href = "/Customer/Create/" + id;
+            }
+            else {
+                window.location.href = "/Customer/Create/";
+            }
+        }
+        
+    </script>
+}

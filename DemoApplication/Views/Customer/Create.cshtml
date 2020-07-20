@@ -1,0 +1,104 @@
+﻿@model DemoApplication.Models.Customer
+@{
+    ViewBag.Title = "Add Customer";
+}
+
+<div class="row justify-content-md-center">
+    <div class="col col-lg-12 form-group text-center">
+        <label class="h3 "><b>Add New Customer</b></label>
+        <hr />
+    </div>
+    @Html.HiddenFor(m => m.ID)
+    <div class="col col-lg-6 form-group">
+        <label for="" class="fw-500">First Name</label>
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control  form-control-sm", @placeholder = "First Name" })
+    </div>
+    <div class="col col-lg-6 form-group">
+        <label for="" class="fw-500">Last Name</label>
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control  form-control-sm", @placeholder = "Last Name" })
+    </div>
+    <div class="col col-lg-6 form-group">
+        <label for="" class="fw-500">Date of Birth</label>
+        @Html.TextBoxFor(m => m.DOB, "{0:dd/MM/yyyy}", new { @class = "form-control form-control-sm date-picker", @required = "Required", Autocomplete = "off" })
+    </div>
+    <div class="col col-lg-6 form-group">
+        <label for="" class="fw-500">Contact Number</label>
+        @Html.TextBoxFor(m => m.ContactNumber, new { @maxlength = 10, @class = "form-control number form-control-sm number", @placeholder = "Contact Number", @onkeypress = "return isNumberWithDecimalKey(event)" })
+    </div>
+    <div class="col col-lg-6 form-group">
+        <label for="" class="fw-500">Turnover</label>
+        @Html.TextBoxFor(m => m.TurnOver, new { @class = "form-control number form-control-sm number", @type = "number", @placeholder = "Customer Turnover", @onkeypress = "return isNumberWithDecimalKey(event)" })
+    </div>
+    <div class="col col-lg-6 form-group">
+        <label for="" class="fw-500">Address</label>
+        @Html.TextAreaFor(m => m.Address, new { @class = "form-control number form-control-sm" })
+    </div>
+    <div class="col col-lg-6 form-group">
+        <label for="" class="fw-500">City</label>
+        @Html.DropDownListFor(m => m.CityID, new SelectList(ViewBag.City, "Value", "Text"), "Select City", new { @class = "form-control form-control-sm" })
+    </div>
+    <div class="col col-lg-6 form-group">
+        <label class="fw-500"></label>
+        <button type="button" class="btn btn-primary" id="btn-save">Save</button>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+        
+        $("#btn-save").on("click", function () {
+            
+            if ($("#FirstName").val() == "") {
+                toastr["warning"]("Please Enter First Name")
+                return;
+            }
+            else if ($("#LastName").val() == "") {
+                toastr["warning"]("Please Enter Last Name");
+                return;
+            }
+            else if ($('#DOB').val() == "") {
+                toastr["warning"]("Please enter valid date of birth ");
+                return;
+            }
+            else if (!$('#ContactNumber').val().match('[0-9]{10}')) {
+                toastr["warning"]("Please enter 10 digit mobile number");
+                return;
+            }  
+            else if ($("#TurnOver").val() == "") {
+                toastr["warning"]("Please Enter Turnover");
+                return;
+            }
+            else if ($("#CityID").val() == "") {
+                toastr["warning"]("Please Select City");
+                return;
+            }
+            var CustomerModel = {
+            "ID": $("#ID").val(),
+            "FirstName": $("#FirstName").val(),
+            "LastName": $("#LastName").val(),
+            "ContactNumber": $("#ContactNumber").val(),
+            "Address": $("#Address").val(),
+            "DOB": $("#DOB").val(),
+            "TurnOver": $("#TurnOver").val(),
+            "CityID": $("#CityID").val(),
+            }
+            $.ajax({
+                url: '@Url.Action("Create", "Customer")',
+                type: 'POST',
+                data: CustomerModel,
+                success: function (result) {
+                    if (result.isSuccess) {
+                        toastr["success"](result.Message);
+                        window.location.href = "/Customer/Index";
+                    }
+                    else{
+                        toastr["error"](result.Message);
+                    }
+                   
+                }
+            });
+        });
+    </script>
+
+}
